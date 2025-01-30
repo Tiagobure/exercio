@@ -20,14 +20,14 @@ public final class ImportedProduct extends Product {
 		this.customFee = customFee;
 	}
 
-	public Double totalPrice(double total) {
+	public Double totalPrice() {
 
-		return total += total + customFee;
+		return   super.getPrice() + customFee;
 	}
 
 	@Override
 	public String priceTag() {
-		return "(Customs fee: $ " + customFee + ")";
+		return super.getName() + " $ " + String.format("%.2f%n", totalPrice()) + " (Customs fee: $ " + customFee + ")";
 
 	}
 
